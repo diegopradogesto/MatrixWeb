@@ -1,0 +1,80 @@
+{% extends "theme_bootstrap/base.html" %}
+
+{% load metron_tags %}
+{% load i18n %}
+{% load staticfiles %}
+{% load url from future %}
+
+{% block navbar_class %}navbar transparent navbar-inverse navbar-fixed-top{% endblock %}
+
+{% block extra_style %}
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="{% static 'css/base_style.css' %}" />
+	<link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
+	{% block extra_extra_style %}{% endblock %}
+{% endblock %}
+
+{% block site_brand %}
+	<a class="brand" href="{% url 'home' %}">
+		<span class="first-part">MATRIX</span>
+		<span class="second-part">· 3D</span>
+	</a>
+{% endblock %}
+
+// Aquí se definen
+{% block nav %}
+	<ul class="nav pull-right">
+	    <li id="tab_home">
+	        <a href="{% url 'home' %}">Inicio</a>
+	    </li>
+	    <li id="tab_workshop" class="dropdown">
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	            Taller
+	            <b class="caret"></b>
+	        </a>
+	        <ul class="dropdown-menu pull-right" role="menu">
+	            <li><a href="{% url 'workshop' %}#catalog">Catálogo</a></li>
+				<li><a href="{% url 'workshop' %}#own">Tus piezas</a></li>
+				<li><a href="{% url 'workshop' %}#pieces">Más...</a></li>
+			</ul>
+	    </li>
+	    <li id="tab_blog">
+	        <a href="{% url 'zinnia_entry_archive_index' %}">Blog</a>
+	    </li>
+	    <li id="tab_about">
+	        <a href="{% url 'about' %}">Sobre mi</a>
+	    </li>
+	    <li id="tab_contact">
+	        <a href="{% url 'contact_form' %}">Contacto</a>
+	    </li>
+	</ul>
+{% endblock %}
+
+// Quitamos la barra de la cuenta de usuario mientras no se contemplen en la aplicación
+{% block account_bar %}
+	{% comment %}{% include "_account_bar.html" %}{% endcomment%}
+{% endblock %}
+
+{% block extra_head_base %}
+    {% block extra_head %}{% endblock %}
+{% endblock %}
+
+{% block body_base %}
+    {% block page_header_base %}
+    {% endblock %}
+    <div class="container">
+		<div class="row-fluid">
+			<div class="span12">
+		        {% block body %}
+		        {% endblock %}
+			</div>
+		</div>
+    </div>
+    {% block page_footer_base %}
+		{% include "_footer.html" %}
+    {% endblock %}
+{% endblock %}
+
+{% block extra_body_base %}
+    {% analytics %}
+    {% block extra_body %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "site_base.html" %}
+
+{% load metron_tags %}
+{% load i18n %}
+{% load staticfiles %}
+{% load url from future %}
+
+
+{% block head_title %}{% trans "Inicio" %}{% endblock %}
+{% block body_class %}home{% endblock %}
+
+{% block body %}
+    
+    <div class="row">
+        <div class="span3">
+            <a href="{% url 'home' %}"><img src="{% static 'img/icono_big.svg' %}" alt="Logo Matrix3D" /></a>
+        </div>
+        <div class="span7 offset1">
+            <h1>
+                Imprime tus ideas
+            </h1>
+        </div>
+    </div>
+<!--     <div class="hero-unit">
+    {% block banner %}
+        <h3>¿Por qué conformarte con una visión plana de tus diseños 3D? ¡Conviértelos en realidad!</h3>
+        <p>
+            Mándanos los diseños 3D de tus prototipos y te los enviamos a casa.
+            Si estás interesado, no dudes en contarnos tu idea y te haremos
+            un presupuesto sin compromiso.
+        </p>
+
+        <h3>También te ayudamos a construir tu propia impresora 3D</h3>
+        <p>
+            Matrix3D imprime las piezas de tu impresora y te facilita tutoriales
+            que te ayudarán a fabricarla en tu propia casa.
+        </p>
+
+        <h3>Todo esto y mucho más...</h3>
+        <p>
+            Podrás adquirir juguetes, piezas de robots, prototipos o personajes 3D, que encontrarás en nuestro catálogo.
+        </p>
+    {% endblock %}
+    </div> -->
+
+    {% include "_carousel.html" %}
+
+    <div class="row">
+        <div class="span4">
+        {% block column-1 %}
+            <div class="row">
+                <div class="span8 offset2">
+                    <img src="{% static 'img/printrbot.jpg' %}" class="img-rounded"  />
+                </div>
+            </div>
+            <a href="{% url 'workshop' %}#catalog"><h4>Crea tu impresora 3D</h4></a>
+            <p>Fabrica en tu propia casa una impresora 3D por menos de lo que te imaginas. Imprimimos las piezas para distintos modelos de impresora y te facilitamos vídeo-tutoriales para que te sea más fácil construirla por tu cuenta.</p>
+            <p><a class="btn" href="{% url 'workshop' %}#catalog">Ver detalles &raquo;</a></p>
+        {% endblock %}
+        </div>
+        <div class="span4">
+        {% block column-2 %}
+            <div class="row">
+                <div class="span8 offset2">
+                    <img src="{% static 'img/octopus.jpg' %}" class="img-rounded"  />
+                </div>
+            </div>
+            <a href="{% url 'workshop' %}#own"><h4>Impresión de objetos 3D</h4></a>
+            <p>Si nos mandas tus propios diseños, Matrix3D te los imprime con un coste reducido. Envíanos los diseños de tus personajes, prototipos de diseño industrial o cualquier cosa que se te ocurra y la tendrás en casa.</p>
+            <p><a class="btn" href="{% url 'workshop' %}#own">Ver detalles &raquo;</a></p>
+        {% endblock %}
+        </div>
+        <div class="span4">
+        {% block column-3 %}
+            <div class="row">
+                <div class="span8 offset2">
+                    <img src="{% static 'img/maqueta.jpg' %}" class="img-rounded"  />
+                </div>
+            </div>
+            <a href="{% url 'workshop' %}#pieces"><h4>Maquetas</h4></a>
+            <p>¿Eres estudiante de arquitectura y te pasas días enteros haciendo tus maquetas a mano? Matrix3D imprime tus maquetas diseñadas en AutoCAD.</p>
+            <p><a class="btn" href="{% url 'workshop' %}#pieces">Ver detalles &raquo;</a></p>
+        {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+

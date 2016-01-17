@@ -1,0 +1,89 @@
+{% extends "page_with_header.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Contact" %}{% endblock %}
+{% block body_class %}contact{% endblock %}
+
+{% block page_header%}
+	Contacto
+{% endblock %}
+
+{% block page_subheader %}
+	Pídenos presupuesto sin compromiso
+{% endblock %}
+
+{% block body %}
+<p>
+	Puedes contactar con nosotros a través de cualquiera de estos canales:
+</p>
+{% comment %}
+<div class="hero-unit">
+	<form method="POST">
+		{% csrf_token %}
+    	<ol>
+    		{{ form.as_p }}
+    		<li>
+				<input type="submit" name="submit" value={% trans "Enviar" %} />
+    			<div class="clr"></div>
+    		</li>
+    	</ol>
+	</form>
+</div>
+{% endcomment %}
+<div class="span8 offset2">
+	<form class="form-horizontal" method="POST">
+		{% csrf_token %}
+		<div class="row-fluid">
+			<div class="control-group">
+				<label class="control-label" for="inputName">Nombre</label>
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-user"></i></span>
+						<input class="input-xlarge" type="text" id="inputName" placeholder="Nombre" required>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputTwitter">Twitter</label>
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on">@</span>
+						<input class="input-xlarge" id="inputTwitter" type="text" placeholder="Nombre de usuario de twitter">
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputEmail">Email</label>
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-envelope"></i></span>
+						<input class="input-xlarge" type="email" id="inputEmail" placeholder="Email" required>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputSubject">Asunto</label>
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-info-sign"></i></span>
+						<input class="input-xxlarge" type="text" id="inputSubject" placeholder="Asunto" required>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputContent">Mensaje</label>
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-pencil"></i></span>
+						<textarea class="input-xxlarge" rows="10" id="inputContent" placeholder="Contenido" required></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="">
+				<button type="submit" name="submit" class="btn btn-primary">Enviar</button>
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}

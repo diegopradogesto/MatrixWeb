@@ -1,0 +1,35 @@
+{% extends "page_with_header.html" %}
+
+{% load i18n %}
+{% load staticfiles %}
+{% load url from future %}
+
+{% block head_title %}{% trans "Taller" %}{% endblock %}
+{% block body_class %}workshop{% endblock %}
+
+{% block page_header%}
+	Taller
+{% endblock %}
+
+{% block page_subheader %}
+	Encuentra lo que estabas buscando
+{% endblock %}
+
+{% block body %}
+<section id="catalog">
+	<h2>Catálogo</h2>
+	<div id="features">
+        <div class="container">
+            {% block features %}
+                {% include '_features.html' %}
+            {% endblock %}
+        </div>
+	</div>
+</section>
+<section id="own">
+	<h2>Tus piezas</h2>
+</section>
+<section id="pieces">
+	<h2>Más piezas interesantes</h2>
+</section>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "page_with_header.html" %}
+
+{% load zinnia_tags i18n %}
+{% load url from future %}
+
+{% block head_title %}{% trans "Blog" %}{% endblock %}
+{% block body_class %}blog{% endblock %}
+
+{% block page_header%}
+  El blog de MATRIX·3D
+{% endblock %}
+
+{% block page_subheader %}
+  Buscando al arquitecto
+{% endblock %}
+
+{% block meta-keywords %}{% get_tags as entry_tags %}{{ entry_tags|join:", "}}{% endblock %}
+
+{% block extra_head_base %}
+  <meta name="generator" content="Zinnia {{ ZINNIA_VERSION }}" />
+
+  {% block link %}{% endblock %}
+  {% block extra_head %}
+    <link rel="index" href="{% url 'zinnia_entry_archive_index' %}" />
+    <link rel="author" type="text/plain" href="{% url 'zinnia_humans' %}" />
+    <link rel="EditURI" type="application/rsd+xml" href="{% url 'zinnia_rsd' %}" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{% url 'zinnia_wlwmanifest' %}" />
+    <link rel="search" type="application/opensearchdescription+xml" title="Zinnia's Blog" href="{% url 'zinnia_opensearch' %}" />
+    <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of latest entries" %}" href="{% url 'zinnia_entry_latest_feed' %}" />
+    <link rel="alternate" type="application/rss+xml" title="{% trans "RSS Feed of latest discussions" %}" href="{% url 'zinnia_discussion_latest_feed' %}" />
+    {% get_archives_entries "zinnia/tags/archives_entries_link.html" %}
+  {% endblock %}
+{% endblock %}
+
+{% block extra_extra_style %}
+  <link rel="stylesheet" type="text/css" media="screen, projection" href="{{ STATIC_URL }}css/zinnia_override.css" />
+{% endblock %}
+
+{% block body %}
+  {% block slider %}{% endblock %}
+  {% zinnia_breadcrumbs %}
+  <div class="content row-fluid">
+    <div class="maincontent span9">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <div class="sidebar span3">
+      {% block sidebar %}
+        {% include "zinnia/_sidebar.html" %}
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}

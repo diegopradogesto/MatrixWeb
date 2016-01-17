@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.cfg
+metron/__init__.py
+metron/activity.py
+metron/templates/metron/_adwords_conversion.html
+metron/templates/metron/_gauges.html
+metron/templates/metron/_google.html
+metron/templates/metron/_mixpanel.html
+metron/templatetags/__init__.py
+metron/templatetags/metron_tags.py
+pip-egg-info/metron.egg-info/PKG-INFO
+pip-egg-info/metron.egg-info/SOURCES.txt
+pip-egg-info/metron.egg-info/dependency_links.txt
+pip-egg-info/metron.egg-info/not-zip-safe
+pip-egg-info/metron.egg-info/top_level.txt

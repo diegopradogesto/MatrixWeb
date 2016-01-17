@@ -1,0 +1,35 @@
+{% load staticfiles %}
+
+<div id="myCarousel" class="carousel slide">
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="active item">
+            <div class="row">
+                <img src="{% static 'img/octopus_stretched.png' %}" height="500px">
+                <div class="carousel-caption pull-right">
+                  <h4>¿Por qué conformarte con una visión plana de tus diseños 3D? ¡Conviértelos en realidad!</h4>
+                  <p>Mándanos los diseños 3D de tus prototipos y te los enviamos a casa.
+                Si estás interesado, no dudes en contarnos tu idea y te haremos
+                un presupuesto sin compromiso.</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'img/octopus_stretched.png' %}" height="500px">
+            <div class="carousel-caption">
+              <h4>Los 4 pulpos</h4>
+              <p>Esta es una foto de cuatro pulpos impresos por la impresora Matrix</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'img/octopus_stretched.png' %}" height="500px">
+            <div class="carousel-caption">
+              <h4>Los 4 pulpos</h4>
+              <p>Esta es una foto de cuatro pulpos impresos por la impresora Matrix</p>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
